@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tflite/flutter_tflite.dart';
 import 'package:image_picker/image_picker.dart';
@@ -7,16 +8,19 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: const FirebaseOptions(
-      apiKey: "xx",
-      authDomain: "xx",
-      projectId: "xx",
-      storageBucket: "xx",
-      messagingSenderId: "xx",
-      appId: "xx"
-    ),
-  );
+  if (defaultTargetPlatform == TargetPlatform.android) {
+    await Firebase.initializeApp();
+  } else {
+    await Firebase.initializeApp(
+      options: const FirebaseOptions(
+          apiKey: "xx",
+          authDomain: "xx",
+          projectId: "xx",
+          storageBucket: "xx",
+          messagingSenderId: "xx",
+          appId: "xx"),
+    );
+  }
   runApp(MyApp());
 }
 
@@ -49,7 +53,8 @@ class _LoginScreenState extends State<LoginScreen> {
         email: _emailController.text,
         password: _passwordController.text,
       );
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomePage()));
+      Navigator.of(context)
+          .pushReplacement(MaterialPageRoute(builder: (context) => HomePage()));
     } catch (e) {
       setState(() {
         _errorMessage = e.toString();
@@ -92,9 +97,11 @@ class _LoginScreenState extends State<LoginScreen> {
             Text('Don\'t have an account?', style: TextStyle(fontSize: 16)),
             TextButton(
               onPressed: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => SignUpScreen()));
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => SignUpScreen()));
               },
-              child: Text('Sign Up', style: TextStyle(fontSize: 16, color: Colors.blue)),
+              child: Text('Sign Up',
+                  style: TextStyle(fontSize: 16, color: Colors.blue)),
             ),
           ],
         ),
@@ -119,7 +126,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
         email: _emailController.text,
         password: _passwordController.text,
       );
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomePage()));
+      Navigator.of(context)
+          .pushReplacement(MaterialPageRoute(builder: (context) => HomePage()));
     } catch (e) {
       setState(() {
         _errorMessage = e.toString();
@@ -162,9 +170,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
             Text('Already have an account?', style: TextStyle(fontSize: 16)),
             TextButton(
               onPressed: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => LoginScreen()));
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => LoginScreen()));
               },
-              child: Text('Sign In', style: TextStyle(fontSize: 16, color: Colors.blue)),
+              child: Text('Sign In',
+                  style: TextStyle(fontSize: 16, color: Colors.blue)),
             ),
           ],
         ),
@@ -368,9 +378,11 @@ class _ScannerScreenState extends State<ScannerScreen> {
                     ),
             ),
             SizedBox(height: 20),
-            _buildImagePickerButton('Take a photo', () => pickImage(ImageSource.gallery)),
+            _buildImagePickerButton(
+                'Take a photo', () => pickImage(ImageSource.gallery)),
             SizedBox(height: 10),
-            _buildImagePickerButton('Camera', () => pickImage(ImageSource.camera)),
+            _buildImagePickerButton(
+                'Camera', () => pickImage(ImageSource.camera)),
           ],
         ),
       ),

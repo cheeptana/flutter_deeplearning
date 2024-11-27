@@ -1,0 +1,6 @@
+apiKey: "AIzaSyCtg4Y0Kp1PnnipCb5iiecpEpbltNrzgDM",
+      authDomain: "flutter-deeplearning.firebaseapp.com",
+      projectId: "flutter-deeplearning",
+      storageBucket: "flutter-deeplearning.firebasestorage.app",
+      messagingSenderId: "917857924953",
+      appId: "1:917857924953:web:5e849bf3aff2021c0efe48"
