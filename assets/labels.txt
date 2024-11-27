@@ -1,0 +1,15 @@
+0 Africanized Honey Bees (Killer Bees)
+1 Armyworms
+2 Brown Marmorated Stink Bugs
+3 Cabbage Loopers
+4 Citrus Canker
+5 Colorado Potato Beetles
+6 Corn Borers
+7 Corn Earworms
+8 Fall Armyworms
+9 Fruit Flies
+10 Aphids
+11 Spider Mites
+12 Thrips
+13 Tomato Hornworms
+14 Western Corn Rootworms
