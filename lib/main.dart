@@ -9,12 +9,12 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: const FirebaseOptions(
-      apiKey: "AIzaSyCtg4Y0Kp1PnnipCb5iiecpEpbltNrzgDM",
-      authDomain: "flutter-deeplearning.firebaseapp.com",
-      projectId: "flutter-deeplearning",
-      storageBucket: "flutter-deeplearning.firebasestorage.app",
-      messagingSenderId: "917857924953",
-      appId: "1:917857924953:web:5e849bf3aff2021c0efe48"
+      apiKey: "xx",
+      authDomain: "xx",
+      projectId: "xx",
+      storageBucket: "xx",
+      messagingSenderId: "xx",
+      appId: "xx"
     ),
   );
   runApp(MyApp());
@@ -330,7 +330,7 @@ class _ScannerScreenState extends State<ScannerScreen> {
               'Detect Data',
               style: TextStyle(
                 color: Colors.orange,
-                fontWeight: Font FontWeight.w500,
+                fontWeight: FontWeight.w500,
                 fontSize: 28,
               ),
             ),
